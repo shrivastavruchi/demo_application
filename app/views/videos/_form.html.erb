@@ -1,0 +1,32 @@
+<%= form_for(@video) do |f| %>
+  <% if @video.errors.any? %>
+    <div id="error_explanation">
+
+      <ul>
+      <% @video.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.file_field :avatar, class: "form-control" %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'save',:type=>:button,:class => 'btn btn-primary save' %>
+  </div>
+<% end %>
+
+
+<script>
+$(".save").click(function() {
+  if ($("#video_avatar").val() == "") {
+    alert( "You can not upload blank video" );
+  }
+  else {
+    $("#new_video").submit();
+  }
+
+});
+</script>

@@ -1,0 +1,31 @@
+<%if current_user.present? && current_user.is_admin == true  %>
+  <%= link_to 'New Video', new_video_path ,:class => 'btn btn-primary'%>
+<%end%>  
+<p id="notice"><%= notice %></p>
+
+<h1>Videos</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Video</th>
+      <%if current_user.present? && current_user.is_admin == true  %>
+        <th>Edit</th>
+        <th>Delete</th>
+      <%end%>  
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @videos.each do |video| %>
+      <tr>
+        <td><%=video_tag video.avatar.url(:medium),controls: true,style: "max-width: 50%;" %></td>
+        <%if current_user.present? && current_user.is_admin == true  %>
+          <td><%= link_to 'Edit', edit_video_path(video),:class => 'btn btn-primary' %></td>
+          <td><%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' },:class => 'btn btn-primary' %></td>
+        <%end%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
