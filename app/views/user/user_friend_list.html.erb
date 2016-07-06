@@ -1,0 +1,20 @@
+<h1>Friends user</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @freind_users.each do |user| %>
+      <tr>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+         <td><%= user.email %></td>
+         <td><%=link_to 'send_messages' ,send_messages_path(user)%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

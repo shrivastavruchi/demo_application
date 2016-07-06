@@ -13,14 +13,15 @@
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
         <td><%= user.email %></td>
-         <% if Request.find_by(:sender_id=>user.id).status == true%>
-          <td><%=link_to 'Confirm', confirm_user_path(user ,:status=>true) %><td>
-         <%elsif Request.find_by(:sender_id=>user.id).status == false %> 
+        <%if Request.find_by(:sender_id=>user.id).status == true %>
+          <td><%= "confirmed your requets" %> </td>
+          <td>message</td>
+        <%elsif Request.find_by(:sender_id=>user.id).status == false %>  
+          <td><%="Rejected"%></td>
+        <%elsif Request.find_by(:sender_id=>user.id).status == nil %> 
+           <td><%=link_to 'Confirm', confirm_user_path(user ,:status=>true) %><td>
           <td><%=link_to 'Reject', confirm_user_path(user ,:status=>false) %><td>
-         <%else%> 
-          <td><%=link_to 'Confirm', confirm_user_path(user ,:status=>true) %><td>
-          <td><%=link_to 'Reject', confirm_user_path(user ,:status=>false) %><td>
-         <%end%> 
+        <%end%>  
       </tr>
     <% end %>
   </tbody>

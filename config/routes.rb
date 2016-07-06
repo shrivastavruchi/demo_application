@@ -11,6 +11,16 @@ Rails.application.routes.draw do
   end  
   get '/recieve_request' => 'user#recieve_request', as: :recieve
   get '/user_send_request' =>'user#user_send_request' ,as: :user_send_request
+  get '/user_friend_list' =>'user#user_friend_list' ,as: :user_friend_list
+
+  get 'user/:user_id/send_messages' =>'messages#send_messages' ,as: :send_messages
+  post 'user/:user_id/create_messages' =>'messages#create_messages' ,as: :create_messages
+
+
+
+
+
+
 
 
 

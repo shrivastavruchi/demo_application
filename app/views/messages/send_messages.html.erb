@@ -1,0 +1,11 @@
+<%@messages.each do |message| %>
+	<%=message.message_box%>
+	<%=message.user.first_name%>
+<%end%>
+
+
+
+<%= form_for @message, :url=>create_messages_path  do |f| %>
+	<%=f.text_field  :message_box %>
+	<%=f.submit 'save' %>	
+<%end%>

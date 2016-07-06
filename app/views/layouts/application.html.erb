@@ -50,13 +50,14 @@
               <li><%= link_to "Users",user_index_path  %></li>
             <%end%>  
             <%if current_user %>
-              <li><%= link_to "Users",user_index_path  %></li>
+              <li><%#= link_to "Users",user_index_path  %></li>
 
               <li><%= link_to "Videos",videos_path  %></li>
               <li><%= link_to "Sign out", destroy_user_session_path,:method=>:delete  %></li>
               <li><%=link_to "#{current_user.first_name}",:style=>"margin-left: 415px;"%></li>
               <li><%=link_to 'Receive_request',recieve_path %>
               <li><%=link_to 'Send request' ,user_send_request_path%></li>
+              <li><%=link_to 'friend_list', user_friend_list_path %></li>
             <%else%>
               <li><%= link_to "Sign in",new_user_session_path %></li>
             <%end%>  

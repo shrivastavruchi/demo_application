@@ -40,6 +40,7 @@ group :development, :test do
   gem "paperclip"
   gem 'paperclip-av-transcoder'
 	gem "paperclip-ffmpeg", "~> 1.2.0"
+  gem 'will_paginate'
 end
 
 group :development do

@@ -25,5 +25,8 @@
         <td><%=link_to 'Send request', send_request_user_path(user)%></td>
       </tr>
     <% end %>
+    <div class="pagination" >
+      <%= will_paginate @users %>
+    <div>  
   </tbody>
 </table>
